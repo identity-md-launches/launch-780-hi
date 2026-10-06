@@ -1,0 +1,20 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "HIToken",
+    "name": "HI",
+    "symbol": "HI",
+    "decimals": 18,
+    "constructorArgs": ["$factory", "$poolManager", "$launchNumber"],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 10000,
+    "tickSpacing": 200,
+    "initialPrice": "792281625142643375935439503360000"
+  },
+  "economics": {"poolBps":8800,"initialMarketCapWei":"10000000000000000000","remainderTo":"0x406e93738d6fa0b6970e52aa6582812b4c0121fe"},
+  "notes": "HIToken mints 1,000,000,000 HI with 18 decimals once to msg.sender in its constructor. Constructor arguments are factory (address), poolManager (address), and launchNumber (uint64). Ordinary transfers burn 1% of the amount, rounded down in minor units; the recipient receives the remainder. Transfers are exempt when the factory is sender, recipient, or caller, or when the PoolManager or the current launch distributor is sender or recipient. The distributor is resolved through factory.distributorOf(launchNumber). No owner, subsequent mint, pause, or blocklist is implemented. No application contracts or initialization calls are required. The native ETH pool uses the 1% fee tier with tick spacing 200. initialPrice is provenance only: sqrt(totalSupply / initialMarketCapWei) * 2^96 with ETH as currency0 and HI as currency1; the deployer derives the opening price from the economics and totalSupply."
+}
